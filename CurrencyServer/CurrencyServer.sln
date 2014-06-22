@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyServer", "CurrencyServer\CurrencyServer.csproj", "{AE49243B-74A7-47E6-A673-78993DEDAB56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D9402BD3-0916-40E3-B805-C1FB4A325A1E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRateProvider.Impl", "CurrencyRateProvider\CurrencyRateProvider.Impl.csproj", "{8CA6E694-5C04-44D4-B36B-0A70BBAB5EE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRateProvider.Contract", "CurrencyRateProvider.Contract\CurrencyRateProvider.Contract.csproj", "{0657FE6C-5D9B-4D16-A02C-139640EC8324}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyTicker.WPF", "CurrenyTicker.WPF\CurrencyTicker.WPF.csproj", "{720865BC-B9EA-4970-9B87-B1AF8ABE616A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyTicker.Console", "CurrencyTicker.Console\CurrencyTicker.Console.csproj", "{FCD263A3-03E1-491D-9A8F-FFCC6591DA1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08989D0B-40C1-4AEA-B042-202FE83E9FD6}"
+	ProjectSection(SolutionItems) = preProject
+		Performance1.psess = Performance1.psess
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRateProvider.Client", "CurrencyProviderClient\CurrencyRateProvider.Client.csproj", "{39D289A8-D738-48E8-BD64-FF95FCE44E5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE49243B-74A7-47E6-A673-78993DEDAB56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE49243B-74A7-47E6-A673-78993DEDAB56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE49243B-74A7-47E6-A673-78993DEDAB56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE49243B-74A7-47E6-A673-78993DEDAB56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CA6E694-5C04-44D4-B36B-0A70BBAB5EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA6E694-5C04-44D4-B36B-0A70BBAB5EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA6E694-5C04-44D4-B36B-0A70BBAB5EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA6E694-5C04-44D4-B36B-0A70BBAB5EE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0657FE6C-5D9B-4D16-A02C-139640EC8324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0657FE6C-5D9B-4D16-A02C-139640EC8324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0657FE6C-5D9B-4D16-A02C-139640EC8324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0657FE6C-5D9B-4D16-A02C-139640EC8324}.Release|Any CPU.Build.0 = Release|Any CPU
+		{720865BC-B9EA-4970-9B87-B1AF8ABE616A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720865BC-B9EA-4970-9B87-B1AF8ABE616A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720865BC-B9EA-4970-9B87-B1AF8ABE616A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720865BC-B9EA-4970-9B87-B1AF8ABE616A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD263A3-03E1-491D-9A8F-FFCC6591DA1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD263A3-03E1-491D-9A8F-FFCC6591DA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD263A3-03E1-491D-9A8F-FFCC6591DA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD263A3-03E1-491D-9A8F-FFCC6591DA1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D289A8-D738-48E8-BD64-FF95FCE44E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D289A8-D738-48E8-BD64-FF95FCE44E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D289A8-D738-48E8-BD64-FF95FCE44E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D289A8-D738-48E8-BD64-FF95FCE44E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
