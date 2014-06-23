@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ReactiveUI;
+using System.Reactive;
+using System.Reactive.Concurrency;
 
 namespace GeoCoding.Views
 {
@@ -23,6 +26,29 @@ namespace GeoCoding.Views
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			var disconnectHandler = UserError.RegisterHandler(async error => {
+				var msgBoxResult = await this.Dispatcher.InvokeAsync<MessageBoxResult>(() => {
+					var sb = new StringBuilder();
+					sb.AppendLine(error.ErrorMessage);
+					sb.AppendLine();
+					sb.AppendLine("Possible solution: " + error.ErrorCauseOrResolution);
+					sb.AppendLine();
+					sb.AppendLine("Yes = Retry, No = Abort, Cancel = Fail");
+
+					return MessageBox.Show(this, sb.ToString(), "Error", MessageBoxButton.YesNoCancel, MessageBoxImage.Error);
+				});
+
+				switch (msgBoxResult)
+				{
+					case MessageBoxResult.Yes:
+						return RecoveryOptionResult.RetryOperation;
+					case MessageBoxResult.No:
+						return RecoveryOptionResult.CancelOperation;
+					default:
+						return RecoveryOptionResult.FailOperation;
+				}
+			});
 		}
 	}
 }

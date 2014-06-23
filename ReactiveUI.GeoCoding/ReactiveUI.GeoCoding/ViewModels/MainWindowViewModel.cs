@@ -24,10 +24,19 @@ namespace GeoCoding.ViewModels
 			_startQueryCommand.RegisterAsyncTask<IList<string>>((_) => this.StartQuery(this._address))
 				.ToProperty(this, x => x.ResultAddresses, out _resultAddresses);
 
+			var errorMessage = "The geo coding information could not be obtained.";
+			var errorResolution = "Check your internet connection.";
+
+			_startQueryCommand.ThrownExceptions
+				.Select(ex => new UserError(errorMessage, errorResolution, innerException: ex))
+				.SelectMany(UserError.Throw)
+				.Where(x => x == RecoveryOptionResult.RetryOperation)
+				.InvokeCommand(_startQueryCommand);
+
 			var addressChanges = this.WhenAnyValue(x => x.Address)
 				.Throttle(TimeSpan.FromSeconds(1))
 				.Where(x => this.StartQueryCommand.CanExecute(null))
-				.Subscribe(x => this.StartQueryCommand.Execute(null));
+				.InvokeCommand(_startQueryCommand);
 		}
 
 		private IAsyncGeocoder GeoCoder { get; set; }
@@ -55,7 +64,7 @@ namespace GeoCoding.ViewModels
 		{
 			try
 			{
-				System.Threading.Thread.Sleep(1000);
+				//System.Threading.Thread.Sleep(1000);
 
 				var addresses = await this.GeoCoder.GeocodeAsync(address);
 				return addresses.Select(a => String.Format("{0} ({1})", a.Coordinates.ToString(), a.FormattedAddress)).ToList();
